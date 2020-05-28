@@ -1,5 +1,7 @@
 package org.modernUI.gui.components;
 
+import org.modernUI.gui.event.StatusEvent;
+import org.modernUI.gui.event.StatusListener;
 import org.modernUI.gui.tools.Colour;
 
 import javax.swing.JComponent;
@@ -35,13 +37,9 @@ public class Switch extends JComponent {
      */
     private Color backgroundColor;
     /**
-     * Evento del Switch cuando se habilita
+     * Escucha del evento del {@link Switch}
      */
-    private Consumer<MouseEvent> eventSwitchTrue;
-    /**
-     * Evento del Switch cuando se deshabilita
-     */
-    private Consumer<MouseEvent> eventSwitchFalse;
+    private StatusListener listener;
     /**
      * Color del Switch deshabilitado
      */
@@ -71,8 +69,15 @@ public class Switch extends JComponent {
         modificable = true;
         buttonColor = Color.WHITE;
         backgroundColor = Colour.GREEN_ACTIVE.getColor();
-        eventSwitchTrue = e -> {};
-        eventSwitchFalse = e -> {};
+        listener = new StatusListener() {
+            @Override
+            public void trueState(StatusEvent e) { // None
+            }
+
+            @Override
+            public void falseState(StatusEvent e) {  // None
+            }
+        };
         event();
         setFont(new Font(Font.MONOSPACED, Font.PLAIN, 14));
         setPreferredDimension();
@@ -108,10 +113,9 @@ public class Switch extends JComponent {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (isModificable()) {
-                    if (isSwitch()) eventSwitchTrue.accept(e);
-                    else eventSwitchFalse.accept(e);
                     setSwitch(!isSwitch());
-                    repaint();
+                    if (isSwitch()) listener.trueState((StatusEvent) e);
+                    else listener.falseState((StatusEvent) e);
                 }
             }
         });
@@ -204,35 +208,21 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Evento del componente Switch cuando se habilita
-     * @return evento del componente cuando se habilita
+     * Escucha y contenedor de las acciones del evento
+     *
+     * @return escucha del evento
      */
-    public Consumer<MouseEvent> getEventSwitchTrue() {
-        return eventSwitchTrue;
+    public StatusListener getListener() {
+        return listener;
     }
 
     /**
-     * Modifica el evento del componente Switch cuando se habilita
-     * @param eventSwitchTrue nuevo evento
+     * Fija un nuevo escucha y acciones al {@link StatusListener} del componente {@link Switch}
+     *
+     * @param listener nueva escucha del evento
      */
-    public void setEventSwitchTrue(Consumer<MouseEvent> eventSwitchTrue) {
-        this.eventSwitchTrue = eventSwitchTrue;
-    }
-
-    /**
-     * Evento del componente Switch cuando de deshabilita
-     * @return evento del componente cuando se deshabilita
-     */
-    public Consumer<MouseEvent> getEventSwitchFalse() {
-        return eventSwitchFalse;
-    }
-
-    /**
-     * Modifica el evento del componente Switch cuando se deshabilita
-     * @param eventSwitchFalse nuevo evento
-     */
-    public void setEventSwitchFalse(Consumer<MouseEvent> eventSwitchFalse) {
-        this.eventSwitchFalse = eventSwitchFalse;
+    public void setListener(StatusListener listener) {
+        this.listener = listener;
     }
 
     @Override
