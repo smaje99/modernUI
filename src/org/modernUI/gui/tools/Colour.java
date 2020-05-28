@@ -1,6 +1,6 @@
 package org.modernUI.gui.tools;
 
-import java.awt.*;
+import java.awt.Color;
 
 public enum Colour {
     SCROLL_BORDER(144, 144, 144),
@@ -9,7 +9,11 @@ public enum Colour {
     SCROLL_PRESSED(220, 220, 200, 200),
     GRAY_DISABLED(131, 131, 131),
     GREEN_ACTIVE(75, 216, 101),
-    WHITE_DISABLED(216, 217, 219);
+    WHITE_DISABLED(216, 217, 219),
+    EDITOR(48, 47, 51),
+    LINE_SELECTED(235, 0, 0, 50),
+    INDEX(73, 72, 76),
+    LINE_FOREGROUND(15, 125, 16);
 
     private final Color color;
 
