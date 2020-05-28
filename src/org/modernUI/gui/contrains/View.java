@@ -1,4 +1,4 @@
-package org.modernUI.contrains;
+package org.modernUI.gui.contrains;
 
 import java.awt.Component;
 import java.awt.Container;

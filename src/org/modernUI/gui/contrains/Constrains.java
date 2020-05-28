@@ -1,4 +1,4 @@
-package org.modernUI.contrains;
+package org.modernUI.gui.contrains;
 
 import java.awt.Insets;
 import java.awt.GridBagConstraints;
