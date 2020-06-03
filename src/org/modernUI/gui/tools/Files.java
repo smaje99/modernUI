@@ -172,7 +172,8 @@ public class Files {
      * @return extensión del archivo especificado
      */
     public static String getExtension(String filename) {
-        return filename.substring(filename.lastIndexOf('.') + 1);
+        int dotIndex = filename.lastIndexOf('.');
+        return (dotIndex == -1) ? "" : filename.substring(dotIndex + 1);
     }
 
     /**
