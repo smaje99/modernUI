@@ -46,8 +46,7 @@ public class ModernButton extends JPanel {
 
     public ModernButton(char icon, String text, Level difficulty) {
         super(new GridBagLayout());
-        event = e -> {
-        };
+        event = e -> {};
         setBackground(Colour.LAVENDER.getColor());
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setBorder(new RoundBorder(6, Colour.LAVENDER.getColor()));
