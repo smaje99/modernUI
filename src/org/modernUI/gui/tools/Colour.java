@@ -13,7 +13,11 @@ public enum Colour {
     EDITOR(48, 47, 51),
     LINE_SELECTED(235, 0, 0, 50),
     INDEX(73, 72, 76),
-    LINE_FOREGROUND(15, 125, 16);
+    LINE_FOREGROUND(15, 125, 16),
+    LAVENDER(156, 118, 226, 95),
+    LOW(72, 181, 122),
+    MEDIUM(204, 155, 47),
+    HIGH(186, 29, 38);
 
     private final Color color;
 
