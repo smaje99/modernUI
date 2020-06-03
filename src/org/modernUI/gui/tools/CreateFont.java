@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+import java.io.InputStream;
 
 public final class CreateFont {
     /**
@@ -20,7 +21,7 @@ public final class CreateFont {
      *
      * @param path ruta del archivo de la fuente
      */
-    public CreateFont(String path) {
+    public CreateFont(InputStream path) {
         this(path, Font.TRUETYPE_FONT);
     }
 
@@ -30,7 +31,7 @@ public final class CreateFont {
      * @param path       ruta del archivo de la fuente
      * @param fontFormat formato de fuente
      */
-    public CreateFont(String path, int fontFormat) {
+    public CreateFont(InputStream path, int fontFormat) {
         this.fontFormat = fontFormat;
         font = createFont(path);
     }
@@ -42,9 +43,9 @@ public final class CreateFont {
      * @param path ruta del archivo de la fuente
      * @return fuente creada
      */
-    private Font createFont(String path) {
+    private Font createFont(InputStream path) {
         try {
-            return Font.createFont(fontFormat, getClass().getResourceAsStream(path));
+            return Font.createFont(fontFormat, path);
         } catch (FontFormatException | IOException e) {
             System.err.println("Font not found!!");
             return new Font(Font.MONOSPACED, Font.PLAIN, 10);
