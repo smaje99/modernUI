@@ -11,9 +11,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class MultiLineToolTipUI extends BasicToolTipUI {
-    private Font smallFont;
     protected CellRendererPane rendererPane;
-    private static MultiLineToolTipUI shareInstance;
+    private static final MultiLineToolTipUI shareInstance;
     private static JToolTip toolTip;
     private static JTextArea textArea;
 
