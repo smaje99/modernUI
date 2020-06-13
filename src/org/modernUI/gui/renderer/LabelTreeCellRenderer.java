@@ -1,8 +1,9 @@
 package org.modernUI.gui.renderer;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import java.awt.*;
+import java.awt.Component;
 
 public class LabelTreeCellRenderer extends DefaultTreeCellRenderer {
     private final JLabel label;
