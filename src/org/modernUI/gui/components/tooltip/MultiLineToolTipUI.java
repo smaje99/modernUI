@@ -12,9 +12,9 @@ import java.awt.Graphics;
 
 public class MultiLineToolTipUI extends BasicToolTipUI {
     protected CellRendererPane rendererPane;
+    private JToolTip toolTip;
+    private JTextArea textArea;
     private static final MultiLineToolTipUI shareInstance;
-    private static JToolTip toolTip;
-    private static JTextArea textArea;
 
     static {
         shareInstance = new MultiLineToolTipUI();
