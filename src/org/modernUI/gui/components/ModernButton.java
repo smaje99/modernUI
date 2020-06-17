@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JProgressBar;
+import javax.swing.JToolTip;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
 import java.awt.Font;
@@ -32,11 +33,27 @@ public class ModernButton extends JPanel {
     private final JLabel text;
     private final JProgressBar difficulty;
     private Consumer<MouseEvent> event;
+    private JToolTip toolTip;
 
     {
-        icon = new JLabel();
-        text = new JLabel();
-        difficulty = new JProgressBar();
+        icon = new JLabel() {
+            @Override
+            public JToolTip createToolTip() {
+                return getToolTip(this);
+            }
+        };
+        text = new JLabel() {
+            @Override
+            public JToolTip createToolTip() {
+                return getToolTip(this);
+            }
+        };
+        difficulty = new JProgressBar() {
+            @Override
+            public JToolTip createToolTip() {
+                return getToolTip(this);
+            }
+        };
     }
 
     public ModernButton(ImageIcon icon, String text, Level difficulty) {
@@ -47,6 +64,7 @@ public class ModernButton extends JPanel {
     public ModernButton(char icon, String text, Level difficulty) {
         super(new GridBagLayout());
         event = e -> {};
+        toolTip = new JToolTip();
         setBackground(Colour.LAVENDER.getColor());
         setCursor(new Cursor(Cursor.HAND_CURSOR));
         setBorder(new RoundBorder(6, Colour.LAVENDER.getColor()));
@@ -124,6 +142,15 @@ public class ModernButton extends JPanel {
         return event;
     }
 
+    public JToolTip getToolTip() {
+        return toolTip;
+    }
+
+    private JToolTip getToolTip(JComponent component) {
+        toolTip.setComponent(component);
+        return toolTip;
+    }
+
     public void setEvent(Consumer<MouseEvent> event) {
         this.event = event;
     }
@@ -149,6 +176,10 @@ public class ModernButton extends JPanel {
         updateUI(this.difficulty);
     }
 
+    public void setToolTip(JToolTip toolTip) {
+        this.toolTip = toolTip;
+    }
+
     public void updateUI(JComponent component) {
         component.updateUI();
         updateUI();
@@ -168,5 +199,10 @@ public class ModernButton extends JPanel {
         icon.setComponentPopupMenu(popup);
         text.setComponentPopupMenu(popup);
         difficulty.setComponentPopupMenu(popup);
+    }
+
+    @Override
+    public JToolTip createToolTip() {
+        return getToolTip(this);
     }
 }
