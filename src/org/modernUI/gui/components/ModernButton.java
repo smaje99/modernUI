@@ -6,6 +6,7 @@ import org.modernUI.gui.contrains.View;
 import org.modernUI.gui.contrains.Weight;
 import org.modernUI.gui.tools.Colour;
 import org.modernUI.gui.tools.CreateFont;
+import org.modernUI.gui.tools.DefaultFonts;
 import org.modernUI.tools.Level;
 
 import javax.swing.ImageIcon;
@@ -73,8 +74,8 @@ public class ModernButton extends JPanel {
     }
 
     private void init(String icon, String text, Level difficulty) {
-        CreateFont ubuntuLight = new CreateFont(getClass().getResourceAsStream("/org/modernUI/lib/UbuntuLight.ttf"));
-        CreateFont ubuntuMono = new CreateFont(getClass().getResourceAsStream("/org/modernUI/lib/UbuntuMono-R.ttf"));
+        CreateFont ubuntuLight = DefaultFonts.UBUNTU_LIGHT.getCreateFont();
+        CreateFont ubuntuMono = DefaultFonts.UBUNTU_MONO.getCreateFont();
         this.icon.setText(icon);
         this.icon.setHorizontalAlignment(SwingConstants.CENTER);
         this.icon.setFont(ubuntuMono.getFont(Font.BOLD, 96));
