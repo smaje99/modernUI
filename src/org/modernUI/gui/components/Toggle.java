@@ -17,30 +17,30 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 
-public class Switch extends JComponent {
+public class Toggle extends JComponent {
     /**
-     * Estado de modificación del Switch
+     * Estado de modificación del Toggle
      */
     private boolean modificable;
     private String text;
     /**
-     * Estado del Switch
+     * Estado del Toggle
      */
     private boolean switchComponent;
     /**
-     * Color del botón del Switch
+     * Color del botón del Toggle
      */
     private Color buttonColor;
     /**
-     * Color de fondo del Switch
+     * Color de fondo del Toggle
      */
     private Color backgroundColor;
     /**
-     * Escucha del evento del {@link Switch}
+     * Escucha del evento del {@link Toggle}
      */
     private StatusListener listener;
     /**
-     * Color del Switch deshabilitado
+     * Color del Toggle deshabilitado
      */
     private final Color DISABLED_COMPONENT_COLOR;
 
@@ -49,19 +49,19 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Componente Switch
+     * Componente Toggle Switch
      * @param text texto del componente
      */
-    public Switch(String text) {
+    public Toggle(String text) {
         this(text, false);
     }
 
     /**
-     * Componente Switch
+     * Componente Toggle Switch
      * @param text texto del componente
-     * @param switchComponent estado del Switch
+     * @param switchComponent estado del Toggle
      */
-    public Switch(String text, boolean switchComponent) {
+    public Toggle(String text, boolean switchComponent) {
         super();
         this.text = text;
         this.switchComponent = switchComponent;
@@ -105,7 +105,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Evento del Componente Switch
+     * Evento del Componente Toggle
      */
     private void event(){
         addMouseListener(new MouseAdapter() {
@@ -121,7 +121,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Estado de modificación del componente Switch
+     * Estado de modificación del componente Toggle
      * @return Estado de modificación
      */
     public boolean isModificable() {
@@ -129,7 +129,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Modifica el estado de modificación del componente Switch
+     * Modifica el estado de modificación del componente Toggle
      * @param modificable nuevo estado de modificación
      */
     public void setModificable(boolean modificable) {
@@ -138,7 +138,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Estado del componente Switch
+     * Estado del componente Toggle
      * @return estado del componente
      */
     public boolean isSwitch() {
@@ -146,7 +146,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Modifica el estado del componente Switch
+     * Modifica el estado del componente Toggle
      * @param switchComponent nuevo estado del componente
      */
     public void setSwitch(boolean switchComponent) {
@@ -155,7 +155,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Texto del componente Switch
+     * Texto del componente Toggle
      * @return texto del componente
      */
     public String getText() {
@@ -163,7 +163,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Modifica el Texto del componente Switch
+     * Modifica el Texto del componente Toggle
      * @param text nuevo texto del componente
      */
     public void setText(String text) {
@@ -173,7 +173,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Color del botón del componente Switch
+     * Color del botón del componente Toggle
      * @return color del botón del componente
      */
     public Color getButtonColor() {
@@ -181,7 +181,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Modifica el color del botón del componente Switch
+     * Modifica el color del botón del componente Toggle
      * @param buttonColor nuevo color del botón del componente
      */
     public void setButtonColor(Color buttonColor) {
@@ -190,7 +190,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Color de fondo del componente Switch
+     * Color de fondo del componente Toggle
      * @return color de fondo del componente
      */
     public Color getBackgroundColor() {
@@ -198,7 +198,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Modifica el color de fondo del componente Switch
+     * Modifica el color de fondo del componente Toggle
      * @param backgroundColor nuevo color de fondo del componente
      */
     public void setBackgroundColor(Color backgroundColor) {
@@ -216,7 +216,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Fija un nuevo escucha y acciones al {@link StatusListener} del componente {@link Switch}
+     * Fija un nuevo escucha y acciones al {@link StatusListener} del componente {@link Toggle}
      *
      * @param listener nueva escucha del evento
      */
@@ -246,7 +246,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Aplica el Opaque si está habilitado al componente Switch
+     * Aplica el Opaque si está habilitado al componente Toggle
      * @param g2 pincel
      */
     private void opaque(Graphics2D g2) {
@@ -261,7 +261,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Aplica el estado de Enable al componente Switch
+     * Aplica el estado de Enable al componente Toggle
      * @param g2 pincel
      */
     private void enable(Graphics2D g2) {
@@ -276,7 +276,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Dibuja el botón del componente Switch
+     * Dibuja el botón del componente Toggle
      * @param g2 pincel
      */
     private void drawSwitchComponent(Graphics2D g2) {
@@ -285,7 +285,7 @@ public class Switch extends JComponent {
     }
 
     /**
-     * Fija el texto en el componente Switch
+     * Fija el texto en el componente Toggle
      * @param g2 pincel
      */
     private void drawText(Graphics2D g2) {
