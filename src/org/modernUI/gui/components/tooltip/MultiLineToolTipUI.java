@@ -7,7 +7,6 @@ import javax.swing.JToolTip;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicToolTipUI;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 
 public class MultiLineToolTipUI extends BasicToolTipUI {
@@ -64,8 +63,8 @@ public class MultiLineToolTipUI extends BasicToolTipUI {
         rendererPane.removeAll();
         rendererPane.add(textArea);
         textArea.setWrapStyleWord(true);
-        int width = ((JMultiLineToolTip) c).getFixedWidth();
-        int columns = ((JMultiLineToolTip) c).getColumns();
+        int width = ((CustomToolTip) c).getFixedWidth();
+        int columns = ((CustomToolTip) c).getColumns();
         if (columns > 0) {
             textArea.setColumns(columns);
             textArea.setSize(0, 0);
