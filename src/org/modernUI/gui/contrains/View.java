@@ -23,6 +23,6 @@ public final class View {
      * @param grid diseño a aplicar al {@link Component} en el {@link Container}
      */
     protected void addComponent(GridBagConstraints grid) {
-        container.add(component);
+        container.add(component, grid);
     }
 }
